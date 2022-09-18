@@ -1,0 +1,37 @@
+    <div class="col-md-4 offset-md-2">              <!--DISEÑO DE LA PESTAÑA ADD AGREGANDO LOS TEXTAREA-->
+        <div class="card">
+            <div class="card-body">              
+                <form>
+                    <div class="row">
+                        
+                        <div class="form-control">
+                            <input type="text" placeholder ="Title" [(ngModel)]="game.title" name="title"  class ="form-control" autofocus />
+                        </div>
+                        
+                        <div class="form-control">
+                            <textarea name="description" [(ngModel)]="game.description" placeholder= "Description" rows="2" class ="form-control"></textarea>
+                        </div>
+
+                        <div class="form-control">
+                            <input type="url" name="image" [(ngModel)]="game.image" placeholder="Image" class ="form-control" >
+                        </div>
+                        
+                        <button class = "btn btn-success btn-block" (click) = " edit ? updateGame() : saveNewGame()">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]= "game.image == '' ? '/assets/noimage.png': game.image "  class="card-img-top" >
+        <h3>{{game.id}}. {{game.title == ''? 'Game Title' : game.title}}</h3>
+        <p>{{game.description == '' ? 'Write Your Description' : game.description}}</p>
+        <p>{{game.created_at | date: 'yyyy-MM-dd'}}</p>
+
+    </div>
+
+</div>
