@@ -15,9 +15,9 @@ class GamesController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const games = yield database_1.Mysql.query("SELECT * FROM games");
+                const users = yield database_1.Mysql.query("SELECT * FROM users");
                 //console.log(games);   PARA MOSTRAR EN CONSOLA
-                res.json(games[0]);
+                res.json(users[0]);
             }
             catch (error) {
                 console.log("Error db: " + error);
@@ -28,11 +28,11 @@ class GamesController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                const games = yield database_1.Mysql.query('SELECT * FROM games WHERE id = ?', [id]);
-                if (games.length > 0) {
-                    return res.json(games[0]);
+                const users = yield database_1.Mysql.query('SELECT * FROM users WHERE id = ?', [id]);
+                if (users.length > 0) {
+                    return res.json(users[0]);
                 }
-                res.status(404).json({ text: "The game doesn't exists" });
+                res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
                 console.log("Error db: " + error);
@@ -42,9 +42,9 @@ class GamesController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.Mysql.query("INSERT INTO games set ?", [req.body]);
+                yield database_1.Mysql.query("INSERT INTO users set ?", [req.body]);
                 res.json({
-                    message: "Game Saved",
+                    message: "User Saved",
                 });
             }
             catch (error) {
@@ -56,8 +56,8 @@ class GamesController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                yield database_1.Mysql.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
-                res.json({ message: "The game was updated" });
+                yield database_1.Mysql.query('UPDATE users set ? WHERE id = ?', [req.body, id]);
+                res.json({ message: "The user was updated" });
             }
             catch (error) {
                 console.log("Error db: " + error);
@@ -68,8 +68,8 @@ class GamesController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                yield database_1.Mysql.query('DELETE FROM games WHERE id = ?', [id]);
-                res.json({ message: "The game was deleted" });
+                yield database_1.Mysql.query('DELETE FROM users WHERE id = ?', [id]);
+                res.json({ message: "The user was deleted" });
             }
             catch (error) {
                 console.log("Error db: " + error);

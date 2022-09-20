@@ -1,6 +1,6 @@
 import express, { Application, application } from 'express';
 import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes';
+import usersRoutes from './routes/usersRoutes';
 import morgan from 'morgan';
 import cors from 'cors'
 
@@ -25,7 +25,7 @@ class Server{
 
     routes(): void{
         this.app.use('/',indexRoutes);
-        this.app.use('/api/games',gamesRoutes);
+        this.app.use('/api/users',usersRoutes);
 
     }
 

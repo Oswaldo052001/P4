@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {GameListComponent} from './components/game-list/game-list.component';
 import {GameFormComponent} from './components/game-form/game-form.component';
 import {LoginComponent} from './components/login/login.component';
 
@@ -12,10 +11,7 @@ const routes: Routes = [
     redirectTo: '/games',
     pathMatch: 'full'
   },
-  {
-    path: 'games',                          //para que abra a las demas ventanas o dirrecciones
-    component:  GameListComponent
-  },
+  
   {
     path: 'games/add',
     component: GameFormComponent
@@ -27,6 +23,11 @@ const routes: Routes = [
   {
     path: 'Login', 
     component: LoginComponent
+  },
+
+  {
+    path: 'Login/creat', 
+    component: GameFormComponent
   }
 
 

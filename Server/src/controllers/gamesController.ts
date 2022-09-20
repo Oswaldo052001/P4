@@ -6,9 +6,9 @@ class GamesController {
 
     public async list(req: Request, res: Response) {
         try {
-          const games = await Mysql.query("SELECT * FROM games");
+          const users = await Mysql.query("SELECT * FROM users");
           //console.log(games);   PARA MOSTRAR EN CONSOLA
-          res.json(games[0]);
+          res.json(users[0]);
         } catch (error) {
           console.log("Error db: " + error);
         }
@@ -17,11 +17,11 @@ class GamesController {
     public async getjuego(req: Request, res: Response): Promise <any> {
         const { id } = req.params;
         try {
-            const games = await Mysql.query('SELECT * FROM games WHERE id = ?', [id]);
-            if (games.length > 0){
-                return res.json(games[0]);
+            const users = await Mysql.query('SELECT * FROM users WHERE id = ?', [id]);
+            if (users.length > 0){
+                return res.json(users[0]);
             }
-            res.status(404).json({text: "The game doesn't exists"});
+            res.status(404).json({text: "The user doesn't exists"});
 
           } catch (error) {
             console.log("Error db: " + error);
@@ -30,9 +30,9 @@ class GamesController {
 
     public async create(req: Request, res: Response) {
         try {
-          await Mysql.query("INSERT INTO games set ?", [req.body]);
+          await Mysql.query("INSERT INTO users set ?", [req.body]);
           res.json({
-            message: "Game Saved",
+            message: "User Saved",
           });
         } catch (error) {
           console.log("Error: " + error);
@@ -43,8 +43,8 @@ class GamesController {
     public async update(req: Request, res: Response){          //creando un metodo actualizar
       const { id } = req.params;
       try {
-          await Mysql.query('UPDATE games set ? WHERE id = ?', [req.body, id]);
-          res.json({message: "The game was updated"});
+          await Mysql.query('UPDATE users set ? WHERE id = ?', [req.body, id]);
+          res.json({message: "The user was updated"});
 
         } catch (error) {
           console.log("Error db: " + error);
@@ -56,8 +56,8 @@ class GamesController {
     public async delete(req: Request, res: Response){          //creando un metodo delete
         const { id } = req.params;
         try {
-            await Mysql.query('DELETE FROM games WHERE id = ?', [id]);
-            res.json({message: "The game was deleted"});
+            await Mysql.query('DELETE FROM users WHERE id = ?', [id]);
+            res.json({message: "The user was deleted"});
 
           } catch (error) {
             console.log("Error db: " + error);

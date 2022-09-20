@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Game } from 'src/app/models/Game';
+import { User } from 'src/app/models/Users';
 import {GamesService} from '../../services/games.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
@@ -13,12 +13,14 @@ export class GameFormComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  game: Game | any = {
+  user: User | any = {          //CAMBIAR VALORES 
     id: 0,
-    title: '',
-    description: '',
-    image: '',
-    created_at: new Date()
+    carne: '',
+    nombre: '',
+    apellido: '',
+    contraseña: '',
+    correo: '',
+    created_at: new Date() 
 
   };
 
@@ -37,11 +39,11 @@ export class GameFormComponent implements OnInit {
         res => {
 
         console.log(res);
-        this.game = res;
+        this.user = res;
         this.edit = true;
 
-        for (let game of this.game){
-          this.game = game 
+        for (let user of this.user){
+          this.user = user 
         }
         },
         err => console.log(err)
@@ -51,14 +53,14 @@ export class GameFormComponent implements OnInit {
   }
 
   saveNewGame(){                                //GUARDANDO UN JUEGO
-    delete this.game.created_at;
-    delete this.game.id;
+    delete this.user.created_at;
+    delete this.user.id;
     
-    this.gamesService.saveGame(this.game)      
+    this.gamesService.saveNewUser(this.user)      
      .subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/games'])        //CUANDO SE GUARDE EL JUEGO SE MANDA A LA RUTA 
+        this.router.navigate(['/login'])        //CUANDO SE GUARDE EL JUEGO SE MANDA A LA RUTA 
       },
       
      )
@@ -66,8 +68,8 @@ export class GameFormComponent implements OnInit {
   };
 
   updateGame(){  
-    delete this.game.created_at;               //ACTUALIZANDO UN JUEGO
-    this.gamesService.updateGame(this.game.id, this.game)
+    delete this.user.created_at;               //ACTUALIZANDO UN JUEGO
+    this.gamesService.updateGame(this.user.id, this.user)
     .subscribe(
       res =>{
         console.log(res);  
