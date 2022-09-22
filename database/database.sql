@@ -7,12 +7,27 @@ CREATE TABLE user(
     carne INT(20),
     nombre VARCHAR(180),
     apellido VARCHAR(180),
-    contraseña VARCHAR(40),
+    contrasena VARCHAR(40),
     correo VARCHAR(40),
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 RENAME TABLE user to users;
 DESCRIBE users ;
+
+
+CREATE TABLE curso(
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    codigo_curso INT(20),
+    nombre_curso VARCHAR(180),
+    profesor VARCHAR(180),
+    auxiliar VARCHAR(40),
+    seccion VARCHAR(40),
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    creditos VARCHAR(100)
+);
+
+RENAME TABLE curso to cursos;
+DESCRIBE cursos ;
 
 

@@ -2,24 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {GameFormComponent} from './components/game-form/game-form.component';
 import {LoginComponent} from './components/login/login.component';
-
+import { RecuperarCuentaComponent } from './components/recuperar-cuenta/recuperar-cuenta.component';
+import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
+import { PublicacionesComponent } from './components/publicaciones/publicaciones.component'
+import { PerfilComponent } from './components/perfil/perfil.component'
 
 //DONDE SE CREAN LAS RUTAS
 const routes: Routes = [
   {
     path: ' ',
-    redirectTo: '/games',
+    redirectTo: '/Login',
     pathMatch: 'full'
   },
-  
-  {
-    path: 'games/add',
-    component: GameFormComponent
-  },
-  {
-    path: 'games/edit/:id',
-    component: GameFormComponent
-  },
+
+  //---------------------------------------------- URL USUARIOS -------------------------------------------------
   {
     path: 'Login', 
     component: LoginComponent
@@ -28,10 +24,32 @@ const routes: Routes = [
   {
     path: 'Login/creat', 
     component: GameFormComponent
-  }
+  },
 
+  {
+    path: 'Login/recuperar', 
+    component: RecuperarCuentaComponent
+  },
 
+// ----------------------------------------------------- URL CURSOS--------------------------------------------------
 
+{
+  path: 'pageP',
+  redirectTo:'/pageP',
+  pathMatch: 'full'
+},
+{
+    path: 'pageP',
+    component: PaginaPrincipalComponent,
+},
+{
+  path:'pageP/publi',
+  component: PublicacionesComponent
+},
+{
+  path: 'pageP/miP',
+  component: PerfilComponent
+}
 
 
 ];

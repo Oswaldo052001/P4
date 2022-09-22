@@ -1,25 +1,36 @@
-    <div class="col-md-4 offset-md-2">              <!--DISEÑO DE LA PESTAÑA ADD AGREGANDO LOS TEXTAREA-->
+<app-navigation></app-navigation>   
+   <div class="col-md-6 offset-md-3">              <!--DISEÑO DE LA PESTAÑA ADD AGREGANDO LOS TEXTAREA-->
         <div class="card">
             <div class="card-body">              
                 <form>
-                    <div class="row">
+
+                        <img class="mx-auto d-block" src="/assets/crear.png" alt="Logo" width="350"><br>
+                        
                         
                         <div class="form-control">
-                            <input type="text" placeholder ="Title" [(ngModel)]="user.nombre" name="title"  class ="form-control" autofocus />
-                        </div>
+                            <input type="text" placeholder ="Carnet" name="carnet" [(ngModel)] = "user.carne" class ="form-control" autofocus />
+                        </div><br>
                         
                         <div class="form-control">
-                            <textarea name="description" [(ngModel)]="user.contrasena" placeholder= "Description" rows="2" class ="form-control"></textarea>
-                        </div>
+                            <input type="text" placeholder ="Nombre" name="nombre"  [(ngModel)] = "user.nombre" class ="form-control" autofocus />
+                        </div><br>
 
                         <div class="form-control">
-                            <input type="url" name="image" [(ngModel)]="user.correo" placeholder="Image" class ="form-control" >
-                        </div>
-                        
-                        <button class = "btn btn-success btn-block" (click) = " edit ? updateGame() : saveNewGame()">
-                            Save
+                            <input type="text" placeholder ="Apellido" name="apellido"  [(ngModel)] = "user.apellido"  class ="form-control" autofocus />
+                        </div><br>
+
+                        <div class="form-control">
+                            <input type="password" placeholder ="Contraseña"  name="contrasena" [(ngModel)] = "user.contrasena"  class ="form-control" autofocus />
+                        </div><br>
+
+                        <div class="form-control">
+                            <input type="email" placeholder ="Correo" name="correo"  [(ngModel)] = "user.correo" class ="form-control" autofocus />
+                        </div><br>
+
+                        <button class="btn btn-success w-100" (click) = "saveNewUser()">
+                            Crear
                         </button>
-                    </div>
+
                 </form>
             </div>
         </div> 

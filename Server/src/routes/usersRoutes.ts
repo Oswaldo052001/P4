@@ -9,11 +9,20 @@ class GamesRoutes {
     }
 
     config(): void{
-        this.router.get('/',gamesController.list );  // obteniendo todos los juegos
-        this.router.get('/:id',gamesController.getjuego);  // obteniendo un juego en especifico
-        this.router.post('/', gamesController.create);   //publicnado un juego
-        this.router.put('/:id',gamesController.update);   //actualizando un juego y mandando un parametro
-        this.router.delete('/:id',gamesController.delete);  //eliminando un juego y mandando un parametro
+
+        // URL DE LOS METODOS DE USUARIOS
+        this.router.get('/',gamesController.list );  
+        this.router.post('/singin', gamesController.singin);
+        this.router.post('/', gamesController.createUsuario);  
+
+
+        // URL DE LOS METODOS PARA CURSOS
+        this.router.get('/cursos',gamesController.mostrarCursos );  
+        this.router.post('/cursos',gamesController.createCurso);  
+        this.router.delete('/cursos/:id',gamesController.delete); 
+        this.router.get('/cursos/cate/:nombre',gamesController.darnombrecatedratico);
+        this.router.get('/cursos/:nombre',gamesController.darnombrecurso);
+        this.router.put('/:id',gamesController.update); //NO FUNCIONA
     }
     
 }

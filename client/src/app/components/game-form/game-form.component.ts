@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { User } from 'src/app/models/Users';
+
 import {GamesService} from '../../services/games.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
@@ -18,7 +19,7 @@ export class GameFormComponent implements OnInit {
     carne: '',
     nombre: '',
     apellido: '',
-    contraseña: '',
+    contrasena: '',
     correo: '',
     created_at: new Date() 
 
@@ -30,53 +31,30 @@ export class GameFormComponent implements OnInit {
   constructor(private gamesService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.gamesService.getUsers().subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
+    
   
     const params = this.activatedRoute.snapshot.params;
-
-    if (params['id']){
-      this.gamesService.getGame(params['id'])
-      .subscribe(
-        res => {
-
-        console.log(res);
-        this.user = res;
-        this.edit = true;
-
-        for (let user of this.user){
-          this.user = user 
-        }
-        },
-        err => console.log(err)
-      )
-    }
-
   }
 
-  saveNewGame(){                                //GUARDANDO UN JUEGO
+  saveNewUser(){                                //GUARDANDO UN JUEGO
     delete this.user.created_at;
     delete this.user.id;
-    
+    console.log(this.user)
+
     this.gamesService.saveNewUser(this.user)      
      .subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/login'])        //CUANDO SE GUARDE EL JUEGO SE MANDA A LA RUTA 
+        this.router.navigate(['/Login'])        //CUANDO SE GUARDE EL JUEGO SE MANDA A LA RUTA 
       },
-      
      )
 
   };
-
-  updateGame(){  
-    delete this.user.created_at;               //ACTUALIZANDO UN JUEGO
-    this.gamesService.updateGame(this.user.id, this.user)
-    .subscribe(
-      res =>{
-        console.log(res);  
-      }
-    )
-    
-  }
 
 
 }

@@ -1,0 +1,51 @@
+<app-nav></app-nav>
+<!DOCTYPE html>
+<br>
+<ul class="ms-auto">
+    <label>Conectado:</label>
+    <h4>{{usuarios}}</h4>
+</ul>
+<h1 class="text-center">Cursos</h1>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="input-group mb-3">
+        <input [(ngModel)]="nombre" type="text" class="form-control" placeholder="Buscar..."
+            aria-label="Recipient's username">
+    </div>
+    <br>
+    <ul class="navbar-nav ms-auto">
+        <div class="btn-group">
+            <a class="btn btn-primary" (click)="obtenercursos()">Todos los cursos</a>
+            <a class="btn btn-primary" (click)="obcurso()">Curso</a>
+            <a class="btn btn-primary" (click)="obcate()">Catedratico</a>
+        </div>
+    </ul>
+
+    <br>
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let dato of datoscurso">
+            <div class="card-header">
+                Curso
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{dato.codigo_curso}}</li>
+                <li class="list-group-item">{{dato.nombre_curso}}</li>
+                <li class="list-group-item">{{dato.profesor}}</li>
+                <li class="list-group-item">{{dato.auxiliar}}</li>
+                <li class="list-group-item">{{dato.seccion}}</li>
+            </ul>
+        </div>
+        <br>
+    </div>
+    
+</body>
+</html>

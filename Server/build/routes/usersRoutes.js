@@ -11,11 +11,17 @@ class GamesRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', gamesController_1.default.list); // obteniendo todos los juegos
-        this.router.get('/:id', gamesController_1.default.getjuego); // obteniendo un juego en especifico
-        this.router.post('/', gamesController_1.default.create); //publicnado un juego
-        this.router.put('/:id', gamesController_1.default.update); //actualizando un juego y mandando un parametro
-        this.router.delete('/:id', gamesController_1.default.delete); //eliminando un juego y mandando un parametro
+        // URL DE LOS METODOS DE USUARIOS
+        this.router.get('/', gamesController_1.default.list);
+        this.router.post('/singin', gamesController_1.default.singin);
+        this.router.post('/', gamesController_1.default.createUsuario);
+        // URL DE LOS METODOS PARA CURSOS
+        this.router.get('/cursos', gamesController_1.default.mostrarCursos);
+        this.router.post('/cursos', gamesController_1.default.createCurso);
+        this.router.delete('/cursos/:id', gamesController_1.default.delete);
+        this.router.get('/cursos/cate/:nombre', gamesController_1.default.darnombrecatedratico);
+        this.router.get('/cursos/:nombre', gamesController_1.default.darnombrecurso);
+        this.router.put('/:id', gamesController_1.default.update); //NO FUNCIONA
     }
 }
 const usersRoutes = new GamesRoutes();

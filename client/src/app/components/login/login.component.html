@@ -1,3 +1,5 @@
+<app-navigation></app-navigation>
+<br>
 
     <div class="col-md-6 offset-md-3">           <!--DISEÑO DE LA PESTAÑA ADD AGREGANDO LOS TEXTAREA-->
     <div class="card">
@@ -8,26 +10,26 @@
 
                 <br>
                 <div class="form-control">
-                    <input type="email" name = "email" placeholder="CUI/REGISTRO ACADEMICO" class="form-control" >
+                    <input type="text" name = "carnet" placeholder="CUI/REGISTRO ACADEMICO" [(ngModel)] = "user.carne"  class="form-control" required>
                 </div>
                 
                 <br>
                 <div class="form-control">
-                    <input type="password" name = "password" placeholder="Password" class="form-control">
+                    <input type="password" name = "password" placeholder="Password" [(ngModel)] = "user.contrasena" class="form-control" required>
                 </div>
                 
                 <br>
-                    <button type="submit" class="btn btn-success w-100">Login</button>
+                    <button type="submit" class="btn btn-success w-100" (click) = "login()">Login</button>
 
                 <br><br>
+
+
                 <div class="col-auto text-center">
                 <a class="navbar-brand " routerLink ="/Login/creat"><i class="fas fa-user-plus"></i>  Crear Cuenta   </a> 
-                <a class="navbar-brand " routerLink ="/Login/creat">    ¿Olvidaste la contraseña?</a> 
+                <a class="navbar-brand " routerLink ="/Login/recuperar">    ¿Olvidaste la contraseña?</a> 
                 </div>
             </form>
         </div>
     </div> 
 </div>
-
-
 

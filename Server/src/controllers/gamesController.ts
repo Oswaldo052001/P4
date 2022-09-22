@@ -4,6 +4,9 @@ import { Mysql } from "../database";
 
 class GamesController {
 
+
+//-------------------------------------------------- METODOS DE LOS USUARIOS--------------------------------------------
+
     public async list(req: Request, res: Response) {
         try {
           const users = await Mysql.query("SELECT * FROM users");
@@ -14,31 +17,90 @@ class GamesController {
         }
     }
 
-    public async getjuego(req: Request, res: Response): Promise <any> {
-        const { id } = req.params;
-        try {
-            const users = await Mysql.query('SELECT * FROM users WHERE id = ?', [id]);
-            if (users.length > 0){
-                return res.json(users[0]);
-            }
-            res.status(404).json({text: "The user doesn't exists"});
+    public async createUsuario(req: Request, res: Response) {
+      try {
+        await Mysql.query("INSERT INTO users set ?", [req.body]);
+        res.json({
+          message: "User Saved",
+        });
+      } catch (error) {
+        console.log("Error: " + error);
+      }
+  }
 
-          } catch (error) {
-            console.log("Error db: " + error);
-          } 
+  public async singin(req: Request, res: Response){        
+    const {carne, contrasena} = req.body;
+    try {
+        const valores = await Mysql.query('SELECT * from users WHERE carne=? and contrasena=?',[carne,contrasena],)
+        
+        if(valores.length > 0){
+          return res.json(valores[0]);
+
+        }
+         
+        return res.status(404).json({text: "The user doesn't exists"});
+        
+    } catch (error) {
+      console.log("Error db: " + error);
     } 
 
-    public async create(req: Request, res: Response) {
-        try {
-          await Mysql.query("INSERT INTO users set ?", [req.body]);
-          res.json({
-            message: "User Saved",
-          });
-        } catch (error) {
-          console.log("Error: " + error);
-        }
-    }
+}
+
+  //---------------------------------------------------METODOS DE LOS CURSOS-----------------------------------------------
+
+
+    public async mostrarCursos(req: Request, res: Response) {
+      try {
+        const cursos = await Mysql.query("SELECT * FROM cursos");
+        //console.log(games);   PARA MOSTRAR EN CONSOLA
+        res.json(cursos[0]);
+      } catch (error) {
+        console.log("Error db: " + error);
+      }
+  }
+
       
+    public async createCurso(req: Request, res: Response) {
+      try {
+        await Mysql.query("INSERT INTO cursos set ?", [req.body]);
+        res.json({
+          message: "Curso Saved",
+        });
+      } catch (error) {
+        console.log("Error: " + error);
+      }
+  }
+
+  public async darnombrecurso(req: Request, res: Response): Promise<any> {
+    const { nombre } = req.params;
+    try {
+      const curso = await Mysql.query('SELECT * FROM cursos WHERE nombre_curso = ?', [nombre]);
+      if (curso.length > 0) {
+        return res.json(curso[0]);
+      }
+      res.status(404).json({ text: "The user doesn't exists" });
+  
+    } catch (error) {
+      console.log("Error db: " + error);
+    }
+  }
+
+
+  public async darnombrecatedratico(req: Request, res: Response): Promise<any> {          //creando un metodo actualizar
+    const { nombre } = req.params;
+    try {
+      const curso = await Mysql.query('SELECT * FROM cursos WHERE profesor = ?', [nombre]);
+      if (curso.length > 0) {
+        return res.json(curso[0]);
+      }
+      res.status(404).json({ text: "The user doesn't exists" });
+
+    } catch (error) {
+      console.log("Error db: " + error);
+    }
+  }
+
+//------------------------------------------------------------------------------------------------------------------------//
 
     public async update(req: Request, res: Response){          //creando un metodo actualizar
       const { id } = req.params;
@@ -63,6 +125,20 @@ class GamesController {
             console.log("Error db: " + error);
           } 
     }
+
+    public async getcursos(req: Request, res: Response): Promise <any> {
+      const { id } = req.params;
+      try {
+          const users = await Mysql.query('SELECT * FROM users WHERE id = ?', [id]);
+          if (users.length > 0){
+              return res.json(users[0]);
+          }
+          res.status(404).json({text: "The user doesn't exists"});
+
+        } catch (error) {
+          console.log("Error db: " + error);
+        } 
+  } 
 
 }
 
