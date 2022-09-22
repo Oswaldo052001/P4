@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import gamesController from '../controllers/gamesController';
+import usersController from '../controllers/UserController';
 
-class GamesRoutes {
+class UsersRoutes {
     public router: Router = Router();
 
     constructor(){
@@ -11,21 +11,21 @@ class GamesRoutes {
     config(): void{
 
         // URL DE LOS METODOS DE USUARIOS
-        this.router.get('/',gamesController.list );  
-        this.router.post('/singin', gamesController.singin);
-        this.router.post('/', gamesController.createUsuario);  
+        this.router.get('/',usersController.list );  
+        this.router.post('/singin', usersController.singin);
+        this.router.post('/', usersController.createUsuario);  
 
 
         // URL DE LOS METODOS PARA CURSOS
-        this.router.get('/cursos',gamesController.mostrarCursos );  
-        this.router.post('/cursos',gamesController.createCurso);  
-        this.router.delete('/cursos/:id',gamesController.delete); 
-        this.router.get('/cursos/cate/:nombre',gamesController.darnombrecatedratico);
-        this.router.get('/cursos/:nombre',gamesController.darnombrecurso);
-        this.router.put('/:id',gamesController.update); //NO FUNCIONA
+        this.router.get('/cursos',usersController.mostrarCursos );  
+        this.router.post('/cursos',usersController.createCurso);  
+        this.router.delete('/cursos/:id',usersController.delete); 
+        this.router.get('/cursos/cate/:nombre',usersController.darnombrecatedratico);
+        this.router.get('/cursos/:nombre',usersController.darnombrecurso);
+        this.router.put('/:id',usersController.update); //NO FUNCIONA
     }
     
 }
 
-const usersRoutes = new GamesRoutes();
+const usersRoutes = new UsersRoutes();
 export default usersRoutes.router;

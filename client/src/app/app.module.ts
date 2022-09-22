@@ -6,10 +6,10 @@ import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { GameFormComponent } from './components/game-form/game-form.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 
-import { GamesService } from './services/games.service';
+import { UsersService } from './services/users.service';
 import { LoginComponent } from './components/login/login.component';
 import { RecuperarCuentaComponent } from './components/recuperar-cuenta/recuperar-cuenta.component';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
@@ -21,7 +21,7 @@ import { NavComponent } from './components/nav/nav.component';
   declarations: [
     AppComponent,
     NavigationComponent,
-    GameFormComponent,
+    UserFormComponent,
     LoginComponent,
     RecuperarCuentaComponent,
     PaginaPrincipalComponent,
@@ -36,7 +36,7 @@ import { NavComponent } from './components/nav/nav.component';
     FormsModule
   ],
   providers: [
-    GamesService
+    UsersService
 
   ],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { User } from 'src/app/models/Users';
 
-import {GamesService} from '../../services/games.service';
+import {UsersService} from '../../services/users.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
 
@@ -10,7 +10,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   templateUrl: './game-form.component.html',
   styleUrls: ['./game-form.component.css']
 })
-export class GameFormComponent implements OnInit {
+export class UserFormComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
@@ -28,11 +28,11 @@ export class GameFormComponent implements OnInit {
   edit: boolean = false;
 
 
-  constructor(private gamesService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.gamesService.getUsers().subscribe(
+    this.userService.getUsers().subscribe(
       res => console.log(res),
       err => console.log(err)
     );
@@ -46,7 +46,7 @@ export class GameFormComponent implements OnInit {
     delete this.user.id;
     console.log(this.user)
 
-    this.gamesService.saveNewUser(this.user)      
+    this.userService.saveNewUser(this.user)      
      .subscribe(
       res => {
         console.log(res);

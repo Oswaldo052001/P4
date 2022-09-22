@@ -1,6 +1,6 @@
 import { Component, HostBinding ,OnInit } from '@angular/core';
 
-import {GamesService} from '../../services/games.service';
+import {UsersService} from '../../services/users.service';
 import {Router, ActivatedRoute} from '@angular/router';
 import { userLog } from 'src/app/models/Users';
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   estado: boolean = false;
 
 
-  constructor(private gamesService: GamesService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     login(){               
                        //GUARDANDO UN JUEGO
-      this.gamesService.singin(this.user)      
+      this.userService.singin(this.user)      
        .subscribe(
         res => {
           let isEmpty = Object.entries(res).length === 0;

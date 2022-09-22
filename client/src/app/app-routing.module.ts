@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {GameFormComponent} from './components/game-form/game-form.component';
+import {UserFormComponent} from './components/user-form/user-form.component';
 import {LoginComponent} from './components/login/login.component';
 import { RecuperarCuentaComponent } from './components/recuperar-cuenta/recuperar-cuenta.component';
 import { PaginaPrincipalComponent } from './components/pagina-principal/pagina-principal.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
 
   {
     path: 'Login/creat', 
-    component: GameFormComponent
+    component: UserFormComponent
   },
 
   {

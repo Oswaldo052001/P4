@@ -2,7 +2,7 @@ import {Request, Response} from 'express';
 //import pool from "../database";
 import { Mysql } from "../database";
 
-class GamesController {
+class UsersController {
 
 
 //-------------------------------------------------- METODOS DE LOS USUARIOS--------------------------------------------
@@ -142,5 +142,5 @@ class GamesController {
 
 }
 
-const gamesController = new GamesController();
-export default gamesController;
+const usersController = new UsersController();
+export default usersController;

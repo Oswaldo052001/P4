@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Cursos} from 'src/app/models/Users';
-import {GamesService} from 'src/app/services/games.service';
+import {UsersService} from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -9,7 +9,7 @@ import {GamesService} from 'src/app/services/games.service';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
-  constructor(public gamesService:GamesService) {
+  constructor(public userService:UsersService) {
 
    }
 
@@ -22,7 +22,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   obtenercursos(){
     this.datoscurso=[];
-    this.gamesService.traercursos().subscribe(async (res:any) =>{
+    this.userService.traercursos().subscribe(async (res:any) =>{
       let valores: any = res;
       this.datoscurso=valores
     },
@@ -31,7 +31,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   obcurso(){
     this.datoscurso=[];
-    this.gamesService.traercuso(this.nombre).subscribe(async (res:any) =>{
+    this.userService.traercuso(this.nombre).subscribe(async (res:any) =>{
       res.forEach((valores: Cursos) => {
         this.datoscurso.push(valores);
       });
@@ -41,7 +41,7 @@ export class PaginaPrincipalComponent implements OnInit {
 
   obcate(){
     this.datoscurso=[];
-    this.gamesService.treaercate(this.nombre).subscribe(async (res:any)=>{
+    this.userService.treaercate(this.nombre).subscribe(async (res:any)=>{
       res.forEach((valores: Cursos) => {
         this.datoscurso.push(valores);
       });

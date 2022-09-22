@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Cursos} from 'src/app/models/Users';
-import {GamesService} from 'src/app/services/games.service';
+import {UsersService} from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-perfil',
@@ -9,7 +9,7 @@ import {GamesService} from 'src/app/services/games.service';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor( public gamesService:GamesService) { }
+  constructor( public userService:UsersService) { }
 
   usuarios= localStorage.getItem("usuarioensesion");
   datoscurso: Cursos[]=[];
@@ -19,7 +19,7 @@ export class PerfilComponent implements OnInit {
 
   obtenercursos(){
     this.datoscurso=[];
-    this.gamesService.traercursos().subscribe(async (res:any) =>{
+    this.userService.traercursos().subscribe(async (res:any) =>{
       let valores: any = res;
       this.datoscurso=valores
     },

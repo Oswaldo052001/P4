@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User, userLog} from '../models/Users'
-import { Observable } from 'rxjs';
+import {User, userLog} from '../models/Users';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class GamesService {
+export class UsersService {
 
   API_URI = 'http://localhost:3000/api';         //DIRENCCION DEL SERVIDOR //###########
 
