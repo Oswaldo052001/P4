@@ -6,9 +6,9 @@ import {Router, ActivatedRoute} from '@angular/router';
 
 
 @Component({
-  selector: 'app-game-form',
-  templateUrl: './game-form.component.html',
-  styleUrls: ['./game-form.component.css']
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
 
