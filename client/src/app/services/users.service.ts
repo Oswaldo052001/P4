@@ -40,6 +40,14 @@ export class UsersService {
   treaercate(nombre: string){
     return this.http.get(`${this.API_URI}/users/cursos/cate/${nombre}`);
   }
+  //------------------------------------------------------ METODOS DE COMENTARIOS ----------------------------------------------
 
+  nuevocoment(titulo: string){
+    return this.http.post(`${this.API_URI}/users/cursos/coment/`,titulo);
+  }
+
+  traercoment(){
+    return this.http.get(`${this.API_URI}/users/cursos/coment/`);
+  }
 
 }

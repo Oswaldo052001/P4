@@ -23,6 +23,10 @@ class UsersRoutes {
         this.router.get('/cursos/cate/:nombre',usersController.darnombrecatedratico);
         this.router.get('/cursos/:nombre',usersController.darnombrecurso);
         this.router.put('/:id',usersController.update); //NO FUNCIONA
+
+        // URL DE COMENTARIOS
+        this.router.post('/cursos/coment/',usersController.crearcomentario);
+        this.router.get('/cursos/coment/',usersController.traercoment);
     }
     
 }

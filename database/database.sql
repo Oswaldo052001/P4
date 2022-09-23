@@ -30,4 +30,14 @@ CREATE TABLE curso(
 RENAME TABLE curso to cursos;
 DESCRIBE cursos ;
 
+CREATE TABLE comentario(
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    titulo VARCHAR(180),
+    contenido VARCHAR(180),
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+RENAME TABLE comentario to comentarios;
+DESCRIBE comentarios ;
+
 

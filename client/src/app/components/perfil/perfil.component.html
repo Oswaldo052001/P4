@@ -1,11 +1,13 @@
 <app-nav></app-nav>
+<br>
 <h1 class="text-center">Mi Perfil</h1>
 <ul class="ms-auto">
   <label>Conectado:</label>
   <h4>{{usuarios}}</h4>
 </ul>
 <h3 class="text-center">Cursos Aprobados</h3>
-<div class="row">
+<button type="button" class="btn btn-dark" (click)="obtenercursos()">Agregar Curso</button>
+<div class="row" *ngFor="let dato of datoscurso">
   <table class="table">
     <thead>
       <tr>
@@ -18,42 +20,19 @@
     <tbody>
       <tr>
 
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{dato.nombre_curso}}</td>
+        <td>{{dato.profesor}}</td>
+        <td>{{dato.creditos}}</td>
       </tr>
       <tr>
-
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+        <td>{{dato.nombre_curso}}</td>
+        <td>{{dato.profesor}}</td>
+        <td>{{dato.creditos}}</td>
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-dark" (click)="obtenercursos()">Agregar Curso</button>
-  <br>
-  <br>
-  <div *ngFor="let dato of datoscurso">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Curso</th>
-          <th scope="col">Profesor</th>
-          <th scope="col">Creditos</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{dato.nombre_curso}}</td>
-          <td>{{dato.profesor}}</td>
-          <td>5</td>
-        </tr>
 
-      </tbody>
-    </table>
-  </div>
+  <br>
+  <br>
+
 </div>

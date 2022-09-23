@@ -23,4 +23,16 @@ export interface Cursos{
 }
 export interface cursoap{
     nombre_curso:String;
+    creditos:String;
+}
+export interface nuevoc {
+    titulo?: string;
+    comentario?: string;
+    created_at?: Date; 
+}
+
+export interface coment{
+    titulo: string;
+    comenta: string;
+    created_at: Date;
 }

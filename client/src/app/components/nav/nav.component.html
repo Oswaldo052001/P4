@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg nabvar-dark bg-dark text-white">
     <div class="container-fluid">
         <img src="/assets/Logoblanco.png" class="img-fluid">
-        <a class="navbar-brand text-white" href="/pageP">Pagina Principal</a>
+        <a class="navbar-brand text-white" href="/pageP">Principal</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,12 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/pageP/miP">Mi Perfil</a>
+                    <a class="nav-link text-white" routerLink="/pageP/miP">Perfil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" routerLink="/pageP/publi" routerLinkActive="active">
                         Publicaciones </a>
                 </li>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/Login"><i class="fas fa-sign-in"></i> Salir </a>
                 </li>

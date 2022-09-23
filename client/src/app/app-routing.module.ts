@@ -10,7 +10,7 @@ import { PerfilComponent } from './components/perfil/perfil.component'
 //DONDE SE CREAN LAS RUTAS
 const routes: Routes = [
   {
-    path: ' ',
+    path: '',
     redirectTo: '/Login',
     pathMatch: 'full'
   },

@@ -58,7 +58,6 @@ class UsersController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const cursos = yield database_1.Mysql.query("SELECT * FROM cursos");
-                //console.log(games);   PARA MOSTRAR EN CONSOLA
                 res.json(cursos[0]);
             }
             catch (error) {
@@ -109,6 +108,31 @@ class UsersController {
             }
         });
     }
+    //---------------------------------METODOS COMENTARIOS---------------------------------------------------------------
+    crearcomentario(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield database_1.Mysql.query("INSERT INTO comentarios set ?", [req.body]);
+                res.json({
+                    message: "coment Saved",
+                });
+            }
+            catch (error) {
+                console.log("Error: " + error);
+            }
+        });
+    }
+    traercoment(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const comen = yield database_1.Mysql.query("SELECT * FROM comentarios");
+                res.json(comen[0]);
+            }
+            catch (error) {
+                console.log("Error db: " + error);
+            }
+        });
+    }
     //------------------------------------------------------------------------------------------------------------------------//
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -126,8 +150,8 @@ class UsersController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                yield database_1.Mysql.query('DELETE FROM users WHERE id = ?', [id]);
-                res.json({ message: "The user was deleted" });
+                yield database_1.Mysql.query('DELETE FROM cursos WHERE id = ?', [id]);
+                res.json({ message: "The cursos was deleted" });
             }
             catch (error) {
                 console.log("Error db: " + error);

@@ -1,45 +1,30 @@
 <app-nav></app-nav>
 <br>
 <ul class="ms-auto">
+  <br>
     <label>Conectado:</label>
     <h4>{{usuarios}}</h4>
 </ul>
 <h1 class="text-center">Publicaciones</h1>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Nombre Curso/Catedratico</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Escribe el nombre del curso o catedratico">
+    <input [(ngModel)]="user.titulo" type="titulo" class="form-control" id="exampleFormControlInput1" placeholder="Escribe el nombre del curso o catedratico">
   </div>
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Contenido de la publicación</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe algo acerca del curso o catedratico"></textarea>
+    <textarea [(ngModel)]="user.contenido" type="contenido" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe algo acerca del curso o catedratico"></textarea>
   </div>
-  <button type="button" class="btn btn-dark">Publicar</button>
+  <button type="button" class="btn btn-dark" (click) = "nuevocoment()">Publicar</button>
+  <button type="button" class="btn btn-dark" (click) = "obtenercoment()">Ver publicaciones</button>
   <br>
   <br>
-  <div class="card ms-center" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-      <div class="publicacion-realizada">
-        <div class="usuario-publico">
-            <div class="avatar">
-            </div>
-            <div class="contenido-publicacion">
-                <h4>Carolina de la valle</h4>
-                <ul>
-                    <li>Hace 3 min</li>
-                </ul>
-            </div>
-            <div class="menu-comentario">
-                <i class="fas fa-pen"></i>
-                <ul class="menu">
-                    <li><a href="">Editar</a></li>
-                    <li><a href="">Eliminar</a></li>
-                </ul>
-            </div>
-        </div>
+  <div class="card" style="width: 18rem;" **ngFor="let dato of datoscoment">
+    <div class="card-header">
+      Publicacion
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{dato.titulo}}</li>
+      <li class="list-group-item">{{dato.content}}</li>
+      <li class="list-group-item">{{dato.created_at}}</li>
+    </ul>
   </div>
