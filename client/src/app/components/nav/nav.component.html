@@ -1,30 +1,71 @@
-<nav class="navbar navbar-expand-lg nabvar-dark bg-dark text-white">
-    <div class="container-fluid">
-        <img src="/assets/Logoblanco.png" class="img-fluid">
-        <a class="navbar-brand text-white" href="/pageP">Principal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/pageP/miP">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" routerLink="/pageP/publi" routerLinkActive="active">
-                        Publicaciones </a>
-                </li>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/Login"><i class="fas fa-sign-in"></i> Salir </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg nabvar-dark bg-dark text-white">
+            <div class="container-fluid">
+                <img src="/assets/Logoblanco.png" class="img-fluid" />
+                <a class="navbar-brand text-white" href="/pageP">Principal</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-white"
+                                routerLink="/pageP/miP"
+                                >Perfil</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-white"
+                                routerLink="/pageP/publi"
+                                routerLinkActive="active"
+                            >
+                                Publicaciones
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-white"
+                                routerLink="/Login/pageP/users"
+                                routerLinkActive="active"
+                            >
+                                Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-white"
+                                routerLink="/Login/pageP/cursos"
+                                routerLinkActive="active"
+                            >
+                                Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Login"
+                                ><i class="fas fa-sign-in"></i> Salir
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

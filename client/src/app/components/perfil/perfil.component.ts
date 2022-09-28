@@ -1,28 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import {Cursos} from 'src/app/models/Users';
-import {UsersService} from 'src/app/services/users.service';
+import { Component, OnInit } from '@angular/core'
+import { async } from '@angular/core/testing'
+import { Cursos } from 'src/app/models/Users'
+import { User } from 'src/app/models/Users'
+import { UsersService } from 'src/app/services/users.service'
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+    selector: 'app-perfil',
+    templateUrl: './perfil.component.html',
+    styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent implements OnInit {
+    usuarios = localStorage.getItem('usuarioensesion')
+    dataUsers: User[] = []
 
-  constructor( public userService:UsersService) { }
+    constructor(public userService: UsersService) {}
 
-  usuarios= localStorage.getItem("usuarioensesion");
-  datoscurso: Cursos[]=[];
+    ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  obtenercursos(){
-    this.datoscurso=[];
-    this.userService.traercursos().subscribe(async (res:any) =>{
-      let valores: any = res;
-      this.datoscurso=valores
-    },
-      err => console.log(err));
-  }
+    obsData() {
+        this.dataUsers = []
+        this.userService.dataUser(this.usuarios).subscribe(async (res: any) => {
+            res.forEach((datos: User) => {
+                this.dataUsers.push(datos)
+            })
+        })
+    }
 }

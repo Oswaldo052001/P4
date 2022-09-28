@@ -1,23 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
-  <div class ="col-lg-3 col-md-6 col-12">
-    <img src ="/assets/Logoblanco.png" class ="img-fluid">
-  </div>
-      <div class="container ">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+            <div class="col-lg-3 col-md-6 col-12">
+                <img
+                    src="/assets/Logoblanco.png"
+                    class="img-fluid"
+                    width="300px"
+                />
+            </div>
+            <div
+                class="container"
+                style="display: flex; justify-content: space-between"
+            >
+                <h1
+                    class="navbar-brand"
+                    style="position: center; margin-left: 200px"
+                >
+                    FACULTAD DE INGENIERIA
+                </h1>
 
-      <a class="navbar-brand " routerLink ="/Login">FACULTAD DE INGENIERIA</a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink ="/Login" routerLinkActive = "active"><i class ="fas fa-sign-in"></i>  Login </a>   <!--NOMBRE DE LAS PESTAÑAS-->
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> 
-
-
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                routerLink="/Login"
+                                routerLinkActive="active"
+                            >
+                                <i class="fas fa-sign-in"></i> Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

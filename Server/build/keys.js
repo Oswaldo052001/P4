@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     database: {
         host: 'localhost',
-        user: 'z',
+        user: 'a',
         password: '',
-        database: 'ng_cursos_db',
-    }
+        database: 'ng_user_db',
+    },
 };

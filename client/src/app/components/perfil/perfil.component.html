@@ -1,38 +1,45 @@
-<app-nav></app-nav>
-<br>
-<h1 class="text-center">Mi Perfil</h1>
-<ul class="ms-auto">
-  <label>Conectado:</label>
-  <h4>{{usuarios}}</h4>
-</ul>
-<h3 class="text-center">Cursos Aprobados</h3>
-<button type="button" class="btn btn-dark" (click)="obtenercursos()">Agregar Curso</button>
-<div class="row" *ngFor="let dato of datoscurso">
-  <table class="table">
-    <thead>
-      <tr>
-
-        <th scope="col">Curso</th>
-        <th scope="col">Profesor</th>
-        <th scope="col">Creditos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-
-        <td>{{dato.nombre_curso}}</td>
-        <td>{{dato.profesor}}</td>
-        <td>{{dato.creditos}}</td>
-      </tr>
-      <tr>
-        <td>{{dato.nombre_curso}}</td>
-        <td>{{dato.profesor}}</td>
-        <td>{{dato.creditos}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br>
-  <br>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <app-nav></app-nav>
+        <br />
+        <h1 class="text-center">Perfil de usuario</h1>
+        <a class="btn btn-primary" (click)="obsData()"
+            >Informacion de usuario</a
+        >
+        <div class="conteiner">
+            <div class="data" *ngFor="let user of dataUsers">
+                <img
+                    src="/assets/programador.png"
+                    width="200px"
+                    class="img-fluid"
+                />
+                <div class="card" style="width: 18rem">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label>ID: </label> {{ user.id }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>NOMBRE: </label> {{ user.nombre }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>APELLIDO: </label>{{ user.apellido }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>CARNE: </label> {{ user.carne }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>CORREO: </label> {{ user.correo }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

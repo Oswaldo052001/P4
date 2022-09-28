@@ -1,9 +1,8 @@
 export default {
-    database:{
+    database: {
         host: 'localhost',
-        user: 'z',
+        user: 'a',
         password: '',
-        database: 'ng_cursos_db',
-        
-    }
+        database: 'ng_user_db',
+    },
 }

@@ -16,25 +16,42 @@ class UsersController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const users = yield database_1.Mysql.query("SELECT * FROM users");
+                const users = yield database_1.Mysql.query('SELECT * FROM users');
                 //console.log(games);   PARA MOSTRAR EN CONSOLA
                 res.json(users[0]);
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
+    //usuario especifico
+    getoneuser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { carne } = req.params;
+            try {
+                const Userone = yield database_1.Mysql.query('SELECT * FROM users WHERE carne = ?', [carne]);
+                if (Userone.length > 0) {
+                    return res.json(Userone[0]);
+                }
+                res.status(404).json({ text: "the doesn't exists" });
+            }
+            catch (error) {
+                console.log('Error db: ' + error);
+            }
+        });
+    }
+    //crear usuario
     createUsuario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.Mysql.query("INSERT INTO users set ?", [req.body]);
+                yield database_1.Mysql.query('INSERT INTO users set ?', [req.body]);
                 res.json({
-                    message: "User Saved",
+                    message: 'User Saved',
                 });
             }
             catch (error) {
-                console.log("Error: " + error);
+                console.log('Error: ' + error);
             }
         });
     }
@@ -49,7 +66,7 @@ class UsersController {
                 return res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
@@ -57,24 +74,24 @@ class UsersController {
     mostrarCursos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const cursos = yield database_1.Mysql.query("SELECT * FROM cursos");
+                const cursos = yield database_1.Mysql.query('SELECT * FROM cursos');
                 res.json(cursos[0]);
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
     createCurso(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.Mysql.query("INSERT INTO cursos set ?", [req.body]);
+                yield database_1.Mysql.query('INSERT INTO cursos set ?', [req.body]);
                 res.json({
-                    message: "Curso Saved",
+                    message: 'Curso Saved',
                 });
             }
             catch (error) {
-                console.log("Error: " + error);
+                console.log('Error: ' + error);
             }
         });
     }
@@ -89,12 +106,13 @@ class UsersController {
                 res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
     darnombrecatedratico(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            //creando un metodo actualizar
             const { nombre } = req.params;
             try {
                 const curso = yield database_1.Mysql.query('SELECT * FROM cursos WHERE profesor = ?', [nombre]);
@@ -104,7 +122,7 @@ class UsersController {
                 res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
@@ -112,49 +130,51 @@ class UsersController {
     crearcomentario(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield database_1.Mysql.query("INSERT INTO comentarios set ?", [req.body]);
+                yield database_1.Mysql.query('INSERT INTO comentarios set ?', [req.body]);
                 res.json({
-                    message: "coment Saved",
+                    message: 'coment Saved',
                 });
             }
             catch (error) {
-                console.log("Error: " + error);
+                console.log('Error: ' + error);
             }
         });
     }
     traercoment(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const comen = yield database_1.Mysql.query("SELECT * FROM comentarios");
+                const comen = yield database_1.Mysql.query('SELECT * FROM comentarios');
                 res.json(comen[0]);
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
     //------------------------------------------------------------------------------------------------------------------------//
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            //creando un metodo actualizar
             const { id } = req.params;
             try {
                 yield database_1.Mysql.query('UPDATE users set ? WHERE id = ?', [req.body, id]);
-                res.json({ message: "The user was updated" });
+                res.json({ message: 'The user was updated' });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            //creando un metodo delete
             const { id } = req.params;
             try {
                 yield database_1.Mysql.query('DELETE FROM cursos WHERE id = ?', [id]);
-                res.json({ message: "The cursos was deleted" });
+                res.json({ message: 'The cursos was deleted' });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }
@@ -169,7 +189,7 @@ class UsersController {
                 res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
-                console.log("Error db: " + error);
+                console.log('Error db: ' + error);
             }
         });
     }

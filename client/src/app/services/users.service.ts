@@ -1,53 +1,51 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {User, userLog} from '../models/Users';
-
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { User, userLog } from '../models/Users'
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
-
 export class UsersService {
+    API_URI = 'http://localhost:3000/api' //DIRENCCION DEL SERVIDOR //###########
+    usuarios = localStorage.getItem('usuarioensesion')
+    constructor(private http: HttpClient) {}
 
-  API_URI = 'http://localhost:3000/api';         //DIRENCCION DEL SERVIDOR //###########
+    //------------------------------------------------------ METODOS DE USUARIOS ----------------------------------------------
 
-  constructor(private http: HttpClient) { }
+    getUsers() {
+        return this.http.get(`${this.API_URI}/users`)
+    }
 
+    singin(user: userLog) {
+        return this.http.post(`${this.API_URI}/users/singin/`, user)
+    }
 
-//------------------------------------------------------ METODOS DE USUARIOS ----------------------------------------------
-  
-  getUsers(){
-    return this.http.get(`${this.API_URI}/users`);
-  }
+    saveNewUser(user: User) {
+        return this.http.post(`${this.API_URI}/users/`, user)
+    }
 
-  singin(user: userLog){
-    return this.http.post(`${this.API_URI}/users/singin/`, user);
-  }
+    dataUser(carne: string | null) {
+        return this.http.get(`${this.API_URI}/users/${carne}`)
+    }
+    //------------------------------------------------------ METODOS DE CURSOS ----------------------------------------------
+    traercursos() {
+        return this.http.get(`${this.API_URI}/users/cursos`)
+    }
 
-  saveNewUser(user: User){
-    return this.http.post(`${this.API_URI}/users/`,user);
-  }
+    traercuso(nombre: string) {
+        return this.http.get(`${this.API_URI}/users/cursos/${nombre}`)
+    }
 
-//------------------------------------------------------ METODOS DE CURSOS ----------------------------------------------
-  traercursos(){
-    return this.http.get(`${this.API_URI}/users/cursos`);
-  }
+    treaercate(nombre: string) {
+        return this.http.get(`${this.API_URI}/users/cursos/cate/${nombre}`)
+    }
+    //------------------------------------------------------ METODOS DE COMENTARIOS ----------------------------------------------
 
-  traercuso(nombre: string){
-    return this.http.get(`${this.API_URI}/users/cursos/${nombre}`);
-  }
+    nuevocoment(titulo: string) {
+        return this.http.post(`${this.API_URI}/users/cursos/coment/`, titulo)
+    }
 
-  treaercate(nombre: string){
-    return this.http.get(`${this.API_URI}/users/cursos/cate/${nombre}`);
-  }
-  //------------------------------------------------------ METODOS DE COMENTARIOS ----------------------------------------------
-
-  nuevocoment(titulo: string){
-    return this.http.post(`${this.API_URI}/users/cursos/coment/`,titulo);
-  }
-
-  traercoment(){
-    return this.http.get(`${this.API_URI}/users/cursos/coment/`);
-  }
-
+    traercoment() {
+        return this.http.get(`${this.API_URI}/users/cursos/coment/`)
+    }
 }
