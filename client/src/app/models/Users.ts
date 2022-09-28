@@ -33,6 +33,7 @@ export interface nuevoc {
 
 export interface coment {
     titulo: string
+    nombre: string
     comenta: string
     created_at: Date
 }

@@ -1,52 +1,59 @@
-<app-nav></app-nav>
-<!DOCTYPE html>
-<br>
-<ul class="ms-auto">
-    <label>Conectado:</label>
-    <h4>{{usuarios}}</h4>
-</ul>
-<h1 class="text-center">Cursos</h1>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
-</head>
-<body>
-    <br>
-    <br>
-    <div class="input-group mb-3">
-        <input [(ngModel)]="nombre" type="text" class="form-control" placeholder="Buscar..."
-            aria-label="Recipient's username">
-    </div>
-    <br>
-    <ul class="navbar-nav ms-auto">
-        <div class="btn-group">
-            <a class="btn btn-primary" (click)="obtenercursos()">Todos los cursos</a>
-            <a class="btn btn-primary" (click)="obcurso()">Curso</a>
-            <a class="btn btn-primary" (click)="obcate()">Catedratico</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Página Principal</title>
+    </head>
+    <body>
+        <app-nav></app-nav>
+        <br />
+        <ul class="ms-auto">
+            <label>Conectado:</label>
+            <h4>{{ usuarios }}</h4>
+        </ul>
+        <h1 class="text-center">Comentarios</h1>
+        <div class="input-group mb-3">
+            <input
+                [(ngModel)]="nombre"
+                type="text"
+                class="form-control"
+                placeholder="Buscar..."
+                aria-label="Recipient's username"
+            />
         </div>
-    </ul>
-
-    <br>
-    <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let dato of datoscurso">
-            <div class="card-header">
-                Curso
+        <br />
+        <div class="cont-principal">
+            <div
+                class="btn-group-vertical"
+                role="group"
+                aria-label="Vertical button group"
+            >
+                <button type="button" class="btn btn-dark" (click)="obsdata1()">
+                    Curso
+                </button>
+                <button type="button" class="btn btn-dark" (click)="obsdata2()">
+                    Catedratico
+                </button>
+                <button type="button" class="btn btn-dark" (click)="obsdata3()">
+                    todos
+                </button>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Código: {{dato.codigo_curso}}</li>
-                <li class="list-group-item">{{dato.nombre_curso}}</li>
-                <li class="list-group-item">{{dato.profesor}}</li>
-                <li class="list-group-item">{{dato.auxiliar}}</li>
-                <li class="list-group-item">{{dato.seccion}}</li>
-                <li class="list-group-item">Creditos: {{dato.creditos}}</li>
-            </ul>
+            <div class="container">
+                <div class="col-md-2" *ngFor="let data of dataComents">
+                    <div class="card" style="width: 18rem">
+                        <div class="card-body">
+                            <h5 class="card-title">curso: {{ data.titulo }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                Catedratico: {{ data.nombre }}
+                            </h6>
+                            <p class="card-text">
+                                Comentario: {{ data.contenido }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-    </div>
-    
-</body>
+    </body>
 </html>

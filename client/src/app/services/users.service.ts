@@ -46,6 +46,16 @@ export class UsersService {
     }
 
     traercoment() {
-        return this.http.get(`${this.API_URI}/users/cursos/coment/`)
+        return this.http.get(`${this.API_URI}/users/cate/cursos/coment/`)
+    }
+
+    traercoment2(nombre: string) {
+        return this.http.get(
+            `${this.API_URI}/users/cate/cursos/coment/${nombre}`,
+        )
+    }
+
+    traercoment3(nombre: string) {
+        return this.http.get(`${this.API_URI}/users/cursos/coment/${nombre}`)
     }
 }

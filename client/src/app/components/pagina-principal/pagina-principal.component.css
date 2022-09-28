@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 2fr);
+}
+.cont-principal {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-group-vertical {
+    margin-bottom: 575px;
+}
+.btn {
+    padding-right: 50px;
+    padding-left: 50px;
+    text-align: center;
+}

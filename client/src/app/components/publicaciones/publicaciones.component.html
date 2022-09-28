@@ -8,14 +8,26 @@
 <h1 class="text-center">Publicaciones</h1>
 <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label"
-        >Nombre Curso/Catedratico</label
+        >Nombre Curso</label
     >
     <input
         [(ngModel)]="user.titulo"
         type="titulo"
         class="form-control"
         id="exampleFormControlInput1"
-        placeholder="Escribe el nombre del curso o catedratico"
+        placeholder="Escribe el nombre del curso"
+    />
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+        >Nombre Catedratico</label
+    >
+    <input
+        [(ngModel)]="user.nombre"
+        type="titulo"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Escribe el nombre del catedratico"
     />
 </div>
 <div class="mb-3">
@@ -34,14 +46,3 @@
 <button type="button" class="btn btn-dark" (click)="nuevocoment()">
     Publicar
 </button>
-
-<br />
-<br />
-<div class="card" style="width: 18rem" **ngFor="let dato of datoscoment">
-    <div class="card-header">Publicacion</div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ dato.titulo }}</li>
-        <li class="list-group-item">{{ dato.content }}</li>
-        <li class="list-group-item">{{ dato.created_at }}</li>
-    </ul>
-</div>

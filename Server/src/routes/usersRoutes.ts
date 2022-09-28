@@ -16,7 +16,7 @@ class UsersRoutes {
         this.router.get('/:carne', usersController.getoneuser)
 
         // URL DE LOS METODOS PARA CURSOS
-        this.router.get('/cursos', usersController.mostrarCursos)
+        this.router.get('/cate/cursos', usersController.mostrarCursos)
         this.router.post('/cursos', usersController.createCurso)
         this.router.delete('/cursos/:id', usersController.delete)
         this.router.get(
@@ -28,7 +28,16 @@ class UsersRoutes {
 
         // URL DE COMENTARIOS
         this.router.post('/cursos/coment/', usersController.crearcomentario)
-        this.router.get('/cursos/coment/', usersController.traercoment)
+        this.router.get('/cate/cursos/coment/', usersController.traercoment)
+        this.router.delete('/cate/cursos/coment/:id', usersController.deletecom)
+        this.router.get(
+            '/cate/cursos/coment/:titulo',
+            usersController.onecoment,
+        )
+        this.router.get(
+            '/cursos/coment/:nombre',
+            usersController.onecoment_prof,
+        )
     }
 }
 

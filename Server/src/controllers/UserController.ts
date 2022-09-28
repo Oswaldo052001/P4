@@ -9,12 +9,12 @@ class UsersController {
     public async list(req: Request, res: Response) {
         try {
             const users = await Mysql.query('SELECT * FROM users')
-            //console.log(games);   PARA MOSTRAR EN CONSOLA
             res.json(users[0])
         } catch (error) {
             console.log('Error db: ' + error)
         }
     }
+
     //usuario especifico
     public async getoneuser(req: Request, res: Response): Promise<any> {
         const { carne } = req.params
@@ -139,7 +139,46 @@ class UsersController {
             console.log('Error db: ' + error)
         }
     }
-
+    public async deletecom(req: Request, res: Response) {
+        //creando un metodo delete
+        const { id } = req.params
+        try {
+            await Mysql.query('DELETE FROM comentarios WHERE id = ?', [id])
+            res.json({ message: 'The comentari was deleted' })
+        } catch (error) {
+            console.log('Error db: ' + error)
+        }
+    }
+    public async onecoment(req: Request, res: Response): Promise<any> {
+        const { titulo } = req.params
+        try {
+            const comen = await Mysql.query(
+                'SELECT * FROM comentarios WHERE titulo = ?',
+                [titulo],
+            )
+            if (comen.length > 0) {
+                return res.json(comen[0])
+            }
+            res.status(404).json({ text: "The user doesn't exists" })
+        } catch (error) {
+            console.log('Error db: ' + error)
+        }
+    }
+    public async onecoment_prof(req: Request, res: Response): Promise<any> {
+        const { nombre } = req.params
+        try {
+            const comen = await Mysql.query(
+                'SELECT * FROM comentarios WHERE nombre = ?',
+                [nombre],
+            )
+            if (comen.length > 0) {
+                return res.json(comen[0])
+            }
+            res.status(404).json({ text: "The user doesn't exists" })
+        } catch (error) {
+            console.log('Error db: ' + error)
+        }
+    }
     //------------------------------------------------------------------------------------------------------------------------//
 
     public async update(req: Request, res: Response) {

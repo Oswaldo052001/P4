@@ -17,7 +17,7 @@ class UsersRoutes {
         this.router.post('/', UserController_1.default.createUsuario);
         this.router.get('/:carne', UserController_1.default.getoneuser);
         // URL DE LOS METODOS PARA CURSOS
-        this.router.get('/cursos', UserController_1.default.mostrarCursos);
+        this.router.get('/cate/cursos', UserController_1.default.mostrarCursos);
         this.router.post('/cursos', UserController_1.default.createCurso);
         this.router.delete('/cursos/:id', UserController_1.default.delete);
         this.router.get('/cursos/cate/:nombre', UserController_1.default.darnombrecatedratico);
@@ -25,7 +25,10 @@ class UsersRoutes {
         this.router.put('/:id', UserController_1.default.update); //NO FUNCIONA
         // URL DE COMENTARIOS
         this.router.post('/cursos/coment/', UserController_1.default.crearcomentario);
-        this.router.get('/cursos/coment/', UserController_1.default.traercoment);
+        this.router.get('/cate/cursos/coment/', UserController_1.default.traercoment);
+        this.router.delete('/cate/cursos/coment/:id', UserController_1.default.deletecom);
+        this.router.get('/cate/cursos/coment/:titulo', UserController_1.default.onecoment);
+        this.router.get('/cursos/coment/:nombre', UserController_1.default.onecoment_prof);
     }
 }
 const usersRoutes = new UsersRoutes();

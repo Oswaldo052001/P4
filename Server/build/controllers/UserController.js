@@ -17,7 +17,6 @@ class UsersController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const users = yield database_1.Mysql.query('SELECT * FROM users');
-                //console.log(games);   PARA MOSTRAR EN CONSOLA
                 res.json(users[0]);
             }
             catch (error) {
@@ -145,6 +144,49 @@ class UsersController {
             try {
                 const comen = yield database_1.Mysql.query('SELECT * FROM comentarios');
                 res.json(comen[0]);
+            }
+            catch (error) {
+                console.log('Error db: ' + error);
+            }
+        });
+    }
+    deletecom(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //creando un metodo delete
+            const { id } = req.params;
+            try {
+                yield database_1.Mysql.query('DELETE FROM comentarios WHERE id = ?', [id]);
+                res.json({ message: 'The comentari was deleted' });
+            }
+            catch (error) {
+                console.log('Error db: ' + error);
+            }
+        });
+    }
+    onecoment(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { titulo } = req.params;
+            try {
+                const comen = yield database_1.Mysql.query('SELECT * FROM comentarios WHERE titulo = ?', [titulo]);
+                if (comen.length > 0) {
+                    return res.json(comen[0]);
+                }
+                res.status(404).json({ text: "The user doesn't exists" });
+            }
+            catch (error) {
+                console.log('Error db: ' + error);
+            }
+        });
+    }
+    onecoment_prof(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { nombre } = req.params;
+            try {
+                const comen = yield database_1.Mysql.query('SELECT * FROM comentarios WHERE nombre = ?', [nombre]);
+                if (comen.length > 0) {
+                    return res.json(comen[0]);
+                }
+                res.status(404).json({ text: "The user doesn't exists" });
             }
             catch (error) {
                 console.log('Error db: ' + error);
