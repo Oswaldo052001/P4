@@ -193,13 +193,15 @@ class UsersController {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------------//
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //creando un metodo actualizar
             const { id } = req.params;
             try {
-                yield database_1.Mysql.query('UPDATE users set ? WHERE id = ?', [req.body, id]);
+                yield database_1.Mysql.query('UPDATE comentarios set ? WHERE id = ?', [
+                    req.body,
+                    id,
+                ]);
                 res.json({ message: 'The user was updated' });
             }
             catch (error) {
@@ -207,6 +209,7 @@ class UsersController {
             }
         });
     }
+    //------------------------------------------------------------------------------------------------------------------------//
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //creando un metodo delete

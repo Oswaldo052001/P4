@@ -1,1 +1,53 @@
-<app-nav></app-nav>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <app-nav></app-nav>
+        <div class="searchus">
+            <input
+                class="form-control me-2"
+                type="search"
+                [(ngModel)]="nombre"
+                placeholder="CARNE USUARIO"
+                aria-label="Search"
+            />
+            <button
+                class="btn btn-outline-success"
+                type="submit"
+                (click)="obsdata()"
+            >
+                BUSCAR
+            </button>
+        </div>
+        <br />
+        <form class="d-flex" role="search">
+            <div class="conteiner" *ngFor="let user of dataUsers">
+                <div class="image">
+                    <img
+                        src="/assets/programador.png"
+                        width="200px"
+                        class="img-fluid"
+                    />
+                </div>
+                <div class="card" style="width: 18rem">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label>NOMBRE: </label> {{ user.nombre }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>APELLIDO: </label>{{ user.apellido }}
+                        </li>
+                        <li class="list-group-item">
+                            <label>CARNE: </label> {{ user.carne }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { User, userLog } from '../models/Users'
+import { coment, User, userLog } from '../models/Users'
 
 @Injectable({
     providedIn: 'root',
@@ -24,12 +24,12 @@ export class UsersService {
         return this.http.post(`${this.API_URI}/users/`, user)
     }
 
-    dataUser(carne: string | null) {
+    dataUser(carne: string | null | number) {
         return this.http.get(`${this.API_URI}/users/${carne}`)
     }
     //------------------------------------------------------ METODOS DE CURSOS ----------------------------------------------
     traercursos() {
-        return this.http.get(`${this.API_URI}/users/cursos`)
+        return this.http.get(`${this.API_URI}/users/cate/cursos`)
     }
 
     traercuso(nombre: string) {
@@ -54,7 +54,12 @@ export class UsersService {
             `${this.API_URI}/users/cate/cursos/coment/${nombre}`,
         )
     }
-
+    resp_coment(id: string | number, updateComent: string) {
+        return this.http.put(
+            `${this.API_URI}/users/cursos/coment/${id}`,
+            updateComent,
+        )
+    }
     traercoment3(nombre: string) {
         return this.http.get(`${this.API_URI}/users/cursos/coment/${nombre}`)
     }

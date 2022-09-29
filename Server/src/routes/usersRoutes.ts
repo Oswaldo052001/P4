@@ -24,7 +24,6 @@ class UsersRoutes {
             usersController.darnombrecatedratico,
         )
         this.router.get('/cursos/:nombre', usersController.darnombrecurso)
-        this.router.put('/:id', usersController.update) //NO FUNCIONA
 
         // URL DE COMENTARIOS
         this.router.post('/cursos/coment/', usersController.crearcomentario)
@@ -38,6 +37,7 @@ class UsersRoutes {
             '/cursos/coment/:nombre',
             usersController.onecoment_prof,
         )
+        this.router.put('/cursos/coment/:id', usersController.update)
     }
 }
 

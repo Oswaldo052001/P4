@@ -1,12 +1,38 @@
-<app-nav></app-nav>
-
-<div class="card" style="width: 18rem">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        </p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <app-nav></app-nav>
+        <div class="conteiner">
+            <div
+                class="card"
+                style="width: 18rem"
+                *ngFor="let curso of dataCursos"
+            >
+                <div class="card-header">{{ curso.nombre_curso }}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        CODIGO: {{ curso.codigo_curso }}
+                    </li>
+                    <li class="list-group-item">
+                        PROFESOR:{{ curso.profesor }}
+                    </li>
+                    <li class="list-group-item">
+                        AUXILIAR:{{ curso.auxiliar }}
+                    </li>
+                    <li class="list-group-item">
+                        SECCION: {{ curso.seccion }}
+                    </li>
+                    <li class="list-group-item">
+                        CREDITOS:{{ curso.creditos }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

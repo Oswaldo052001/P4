@@ -179,18 +179,20 @@ class UsersController {
             console.log('Error db: ' + error)
         }
     }
-    //------------------------------------------------------------------------------------------------------------------------//
-
     public async update(req: Request, res: Response) {
         //creando un metodo actualizar
         const { id } = req.params
         try {
-            await Mysql.query('UPDATE users set ? WHERE id = ?', [req.body, id])
+            await Mysql.query('UPDATE comentarios set ? WHERE id = ?', [
+                req.body,
+                id,
+            ])
             res.json({ message: 'The user was updated' })
         } catch (error) {
             console.log('Error db: ' + error)
         }
     }
+    //------------------------------------------------------------------------------------------------------------------------//
 
     public async delete(req: Request, res: Response) {
         //creando un metodo delete

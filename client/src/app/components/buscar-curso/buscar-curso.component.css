@@ -1,0 +1,13 @@
+.conteiner {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.card-header {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+.card {
+    margin-bottom: 6px;
+}

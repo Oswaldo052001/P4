@@ -50,6 +50,22 @@
                             <p class="card-text">
                                 Comentario: {{ data.contenido }}
                             </p>
+                            <input
+                                class="form-control me-2"
+                                type="search"
+                                [(ngModel)]="algo"
+                                placeholder="comentario"
+                                aria-label="Search"
+                            />
+                            <button
+                                class="btn btn-outline-success"
+                                type="submit"
+                            >
+                                comentar
+                            </button>
+                            <p class="card-text">
+                                Comentario: {{ data.respuestas }}
+                            </p>
                         </div>
                     </div>
                 </div>

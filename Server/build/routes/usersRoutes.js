@@ -22,13 +22,13 @@ class UsersRoutes {
         this.router.delete('/cursos/:id', UserController_1.default.delete);
         this.router.get('/cursos/cate/:nombre', UserController_1.default.darnombrecatedratico);
         this.router.get('/cursos/:nombre', UserController_1.default.darnombrecurso);
-        this.router.put('/:id', UserController_1.default.update); //NO FUNCIONA
         // URL DE COMENTARIOS
         this.router.post('/cursos/coment/', UserController_1.default.crearcomentario);
         this.router.get('/cate/cursos/coment/', UserController_1.default.traercoment);
         this.router.delete('/cate/cursos/coment/:id', UserController_1.default.deletecom);
         this.router.get('/cate/cursos/coment/:titulo', UserController_1.default.onecoment);
         this.router.get('/cursos/coment/:nombre', UserController_1.default.onecoment_prof);
+        this.router.put('/cursos/coment/:id', UserController_1.default.update);
     }
 }
 const usersRoutes = new UsersRoutes();

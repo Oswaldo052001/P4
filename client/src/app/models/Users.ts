@@ -37,3 +37,7 @@ export interface coment {
     comenta: string
     created_at: Date
 }
+export interface respuesta {
+    id: number
+    respuestas: string
+}

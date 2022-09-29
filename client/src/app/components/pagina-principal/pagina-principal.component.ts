@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { coment } from 'src/app/models/Users'
+import { coment, respuesta } from 'src/app/models/Users'
 import { UsersService } from 'src/app/services/users.service'
 
 @Component({
@@ -11,8 +11,12 @@ export class PaginaPrincipalComponent implements OnInit {
     constructor(public userService: UsersService) {}
 
     nombre = ''
+    algo = ' '
     usuarios = localStorage.getItem('usuarioensesion')
-
+    coment: respuesta = {
+        id: 0,
+        respuestas: ' ',
+    }
     dataComents: any = []
 
     ngOnInit() {
@@ -23,7 +27,9 @@ export class PaginaPrincipalComponent implements OnInit {
             (err) => console.log(err),
         )
     }
-
+    obtid(id: string) {
+        console.log(id)
+    }
     obsdata1() {
         this.dataComents = []
         this.userService.traercoment2(this.nombre).subscribe(
@@ -36,6 +42,15 @@ export class PaginaPrincipalComponent implements OnInit {
         )
     }
 
+    // updatecoment(id: string, this.algo:any) {
+    //     this.userService.resp_coment(this.coment.id, this.algo).subscribe(
+    //         (res) => {
+    //             console.log(res)
+    //             console.log(id)
+    //         },
+    //         (err) => console.error(err),
+    //     )
+    // }
     obsdata2() {
         this.dataComents = []
         this.userService.traercoment3(this.nombre).subscribe(
