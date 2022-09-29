@@ -1,0 +1,17 @@
+.searchus {
+    display: flex;
+    justify-content: space-between;
+}
+
+.conteiner {
+    display: grid;
+    grid-template-columns: auto auto;
+    border-style: solid;
+}
+.image {
+    width: 100px;
+    height: 125px;
+}
+img {
+    margin-top: 9px;
+}

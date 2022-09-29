@@ -9,9 +9,21 @@
 }
 .btn-group-vertical {
     margin-bottom: 575px;
+    height: 45px;
+    margin-top: 50px;
 }
 .btn {
     padding-right: 50px;
     padding-left: 50px;
     text-align: center;
+    width: 250px;
+}
+.comment {
+    width: 250px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.card {
+    margin-bottom: 5px;
 }
