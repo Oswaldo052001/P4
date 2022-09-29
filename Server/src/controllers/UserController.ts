@@ -61,7 +61,16 @@ class UsersController {
             console.log('Error db: ' + error)
         }
     }
-
+    public async delete_user(req: Request, res: Response) {
+        //creando un metodo delete
+        const { id } = req.params
+        try {
+            await Mysql.query('DELETE FROM users WHERE id = ?', [id])
+            res.json({ message: 'The users was deleted' })
+        } catch (error) {
+            console.log('Error db: ' + error)
+        }
+    }
     //---------------------------------------------------METODOS DE LOS CURSOS-----------------------------------------------
 
     public async mostrarCursos(req: Request, res: Response) {

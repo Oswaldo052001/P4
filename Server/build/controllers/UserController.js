@@ -69,6 +69,19 @@ class UsersController {
             }
         });
     }
+    delete_user(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            //creando un metodo delete
+            const { id } = req.params;
+            try {
+                yield database_1.Mysql.query('DELETE FROM users WHERE id = ?', [id]);
+                res.json({ message: 'The users was deleted' });
+            }
+            catch (error) {
+                console.log('Error db: ' + error);
+            }
+        });
+    }
     //---------------------------------------------------METODOS DE LOS CURSOS-----------------------------------------------
     mostrarCursos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {

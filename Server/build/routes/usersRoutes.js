@@ -16,6 +16,7 @@ class UsersRoutes {
         this.router.post('/singin', UserController_1.default.singin);
         this.router.post('/', UserController_1.default.createUsuario);
         this.router.get('/:carne', UserController_1.default.getoneuser);
+        this.router.delete('/:id', UserController_1.default.delete_user);
         // URL DE LOS METODOS PARA CURSOS
         this.router.get('/cate/cursos', UserController_1.default.mostrarCursos);
         this.router.post('/cursos', UserController_1.default.createCurso);

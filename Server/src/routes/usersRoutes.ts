@@ -10,10 +10,12 @@ class UsersRoutes {
 
     config(): void {
         // URL DE LOS METODOS DE USUARIOS
+
         this.router.get('/', usersController.list)
         this.router.post('/singin', usersController.singin)
         this.router.post('/', usersController.createUsuario)
         this.router.get('/:carne', usersController.getoneuser)
+        this.router.delete('/:id', usersController.delete_user)
 
         // URL DE LOS METODOS PARA CURSOS
         this.router.get('/cate/cursos', usersController.mostrarCursos)
